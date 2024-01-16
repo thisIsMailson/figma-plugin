@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.84.0",
+    "@types/node": "^20.11.4"
+  }
+}
