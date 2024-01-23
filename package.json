@@ -1,6 +1,11 @@
 {
   "devDependencies": {
     "@figma/plugin-typings": "^1.84.0",
-    "@types/node": "^20.11.4"
+    "@types/node": "^20.11.4",
+    "client-zip": "^1.1.1"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "lie": "^3.3.0"
   }
 }
