@@ -1,17 +1,41 @@
 <h2>Rectangle Creator</h2>
-<p>Count: <input id="count" value="5"></p>
+<p>Count: <input id="count" value="5" /></p>
 <button id="create">Export</button>
 <button id="cancel">Cancel</button>
+<script src="./gszip/dist/jszip.min.js"></script>
 <script>
+  console.log("Script is running");
+  console.log(JSZip);
+  document.getElementById("create").onclick = () => {
+    const textbox = document.getElementById("count");
+    const count = parseInt(textbox.value, 10);
+    parent.postMessage(
+      { pluginMessage: { type: "create-rectangles", count } },
+      "*"
+    );
+  };
 
-document.getElementById('create').onclick = () => {
-  const textbox = document.getElementById('count');
-  const count = parseInt(textbox.value, 10);
-  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
-}
+  document.getElementById("cancel").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "cancel" } }, "*");
+  };
 
-document.getElementById('cancel').onclick = () => {
-  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
-}
+  window.onmessage = (event) => {
+    downloadData(event.data.pluginMessage.message);
+  };
 
+  function downloadData(data) {
+    console.log("data 7 =>", data);
+    // data.message.forEach((data) => {
+    //   const { bytes, name } = data;
+    //   const blob = new Blob([bytes], { type: "image/png" });
+    //   const link = document.createElement("a");
+    //   link.href = window.URL.createObjectURL(blob);
+    //   link.download = name;
+    //   document.body.appendChild(link);
+
+    //   link.click();
+    // });
+
+    // console.log("data malubululu =>", bytes, name);
+  }
 </script>
