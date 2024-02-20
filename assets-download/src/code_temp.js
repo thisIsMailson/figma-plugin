@@ -127,8 +127,8 @@ async function saveToAws(data: any) {
   return;
 
   AWS.config.update({
-    accessKeyId: 'AKIAZJXWVMT3OZRO4GHF',
-    secretAccessKey: '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',
+    accessKeyId: 'ACCESS_KEY',
+    secretAccessKey: 'SECRET_ACCESS_KEY',
   });
   const s3 = new AWS.S3();
   const bucketName = 'ah-banners';
