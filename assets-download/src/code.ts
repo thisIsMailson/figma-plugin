@@ -1,6 +1,8 @@
+/// <reference path="../node_modules/@figma/plugin-typings/index.d.ts" />
+/// <reference path="../node_modules/@figma/plugin-typings/plugin-api.d.ts" />
+/// <reference path="./ui.ts" />
 // import JSZip from '../node_modules/jszip/dist/jszip.min.js';
 // https://github.com/brianlovin/figma-export-zip/tree/main
-
 const selectedLayers = figma.currentPage.selection;
 figma.ui.onmessage = async (message) => {
   console.log("mess", selectedLayers);
@@ -31,10 +33,10 @@ figma.ui.onmessage = async (message) => {
 async function main(params) {
   let exportableBytes = [];
   const nodes = selectedLayers[0].children;
-  console.log("data", nodes);
+  console.log("data 1", nodes);
 
   for (let node of nodes) {
-    console.log("data", node);
+    console.log("data 2", node);
 
     let { name, exportSettings } = node;
     if (exportSettings.length === 0) {
@@ -54,7 +56,7 @@ async function main(params) {
       exportableBytes.push({ name, setting, bytes });
     }
   }
-  console.log("data", exportableBytes);
+  console.log("data 3", exportableBytes);
   figma.showUI(__html__, { visible: false });
   figma.ui.postMessage({ message: exportableBytes });
 

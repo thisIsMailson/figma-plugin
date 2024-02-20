@@ -1,7 +1,7 @@
 {
   "name": "assets-download",
   "version": "1.0.0",
-  "description": "Your Figma Plugin",
+  "description": "Export assets from Figma to a zip file",
   "main": "code.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -9,6 +9,9 @@
   },
   "author": "",
   "license": "",
+  "dependencies": {
+    "jszip": "^3.10.1"
+  },
   "devDependencies": {
     "@figma/plugin-typings": "*",
     "typescript": "*",

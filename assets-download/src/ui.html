@@ -2,10 +2,18 @@
 <p>Count: <input id="count" value="5" /></p>
 <button id="create">Export</button>
 <button id="cancel">Cancel</button>
-<script src="./gszip/dist/jszip.min.js"></script>
+<script src="../node_modules/jszip/dist/jszip.min.js"></script>
+<reference path="../node_modules/jszip/dist/jszip.min.js" />;
 <script>
+  const zip = new JSZip();
+
+  console.log("zip =>", zip);
   console.log("Script is running");
-  console.log(JSZip);
+
+  document.addEventListener("DOMContentLoaded", function (event) {
+    const zip = new JSZip();
+    console.log(zip);
+  });
   document.getElementById("create").onclick = () => {
     const textbox = document.getElementById("count");
     const count = parseInt(textbox.value, 10);
@@ -16,12 +24,12 @@
   };
 
   document.getElementById("cancel").onclick = () => {
-    parent.postMessage({ pluginMessage: { type: "cancel" } }, "*");
+    parent.postMessage({ pluginMessage: { type: "canc el" } }, "*");
   };
 
-  window.onmessage = (event) => {
-    downloadData(event.data.pluginMessage.message);
-  };
+  // window.onmessage = (event) => {
+  //   downloadData(event.data.pluginMessage.message);
+  // };
 
   function downloadData(data) {
     console.log("data 7 =>", data);

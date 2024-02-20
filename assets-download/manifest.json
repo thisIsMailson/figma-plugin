@@ -2,16 +2,9 @@
   "name": "assets-download",
   "id": "1328748551435841553",
   "api": "1.0.0",
-  "main": "code.js",
   "capabilities": [],
   "enableProposedApi": false,
-  "editorType": [
-    "figma"
-  ],
-  "ui": "ui.html",
-  "networkAccess": {
-    "allowedDomains": [
-      "none"
-    ]
-  }
+  "editorType": ["figma"],
+  "main": "src/code.js",
+  "ui": "src/ui.html"
 }
